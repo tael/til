@@ -25,10 +25,13 @@
 
 ## VirtualBox
 - 패스
+- http://sourabhbajaj.com/mac-setup/Vagrant/README.html
 
-## vagrant
+## Vagrant
 - 설치
   - 패스
+  - http://sourabhbajaj.com/mac-setup/Vagrant/README.html
+  - vagrant-manager 도 추천!
 - 홈스테드 박스 추가(최초 다운로드시 10~60분 정도 걸림)
 ```
 taelkim:~ tael$ vagrant box add laravel/homestead
@@ -48,7 +51,6 @@ Resolving deltas: 100% (955/955), done.
 Checking connectivity... done.
 taelkim:~ tael$
 ```
-
 - 초기화
 ```
 taelkim:~ tael$ cd Homestead/
@@ -57,36 +59,65 @@ Homestead initialized!
 taelkim:~ tael$
 ```
 (`~/.homestead`에 기본 설정파일인 `Homestead.yaml`,`after.sh`,`aliases` 파일이 생성됨)
-
-
-## 컴포저 설치
-- 패스
-##
------------------------------------
-# 홈스테드 프로젝트별???
-## 컴포저를 통해 Homestead 설치(프로젝트별 일 경우에만?)
+- 설정 확인
 ```
-taelkim:~ tael$ composer global require laravel/homestead
+taelkim:~ tael$ ls ~/.homestead/
+Homestead.yaml	after.sh	aliases
+taelkim:~ tael$
 ```
-## 컴포저 글로벌 패스 설정
+- 기본 설정 확인
 ```
-taelkim:bin tael$ vi ~/.bash_profile
-PATH=~/.composer/vendor/bin:$PATH
-```
-환경변수 참고: http://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path
-> 이제 homestead 명령을 사용할 수 있다.
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+provider: virtualbox
 
+authorize: ~/.ssh/id_rsa.pub
 
----- remove ----
-Homestead
-- 로컬환경에서 글로벌 하게설정하는 것이 좋겠다.
-- 설치:
-    - https://laravel.com/docs/master/homestead
-- 글로벌 환경 처리:
-    - https://laravel.com/docs/5.2/homestead#daily-usage
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: ~/Code
+      to: /home/vagrant/Code
+
+sites:
+    - map: homestead.app
+      to: /home/vagrant/Code/Laravel/public
+
+databases:
+    - homestead
+
+# blackfire:
+#     - id: foo
+#       token: bar
+#       client-id: foo
+#       client-token: bar
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
+```
+- 디렉토리 설정
+  - 패스, 일단 기본값이므로 `~/Code` 디렉토리 추가
+```
+taelkim:~ tael$ mkdir -p ~/Code
+```
+- 홈스테드 명령어 추가
+  - 단순히 vagrant를 대신하는 명령
+  - Vagrant 파일이 있는 곳에서 `vagrant` 명령어를 사용해야 하므로 이를 대신하는 정도
+```
+function homestead() {
+    ( cd ~/Homestead && vagrant $* )
+}
+```
+
+# More Info
+- 홈스테드 설치: https://laravel.com/docs/master/homestead
 - after.sh 수정을 통해 커스터마이징
-    - 참고 예제: postgresql 등 삭제시키기 (비추천)
-        - https://gist.github.com/larryli/bee9e699f995376b56cb
-- 최신 홈스테드: 아틀라스
-    - https://atlas.hashicorp.com/laravel/boxes/homestead
-    -  
+  - 참고 예제: postgresql 등 삭제시키기 (비추천)
+    - https://gist.github.com/larryli/bee9e699f995376b56cb
