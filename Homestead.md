@@ -19,15 +19,16 @@
 - 위와 같은 이유로, 프로젝트의 저장소에 가상머신 정보를 넣지 않고 각자의 Vagrant 환경을 사용하는 것이 옳다.
 
 # 컴포저 글로벌
-- ?
-- 
+- ...
 
-# 설치
+# 설치 및 설정
+
 ## VirtualBox
 - 패스
 
-## vagrant 설치
-- 패스
+## vagrant
+- 설치
+  - 패스
 
 ```
 taelkim:~ tael$ vagrant box add laravel/homestead
