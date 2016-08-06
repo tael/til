@@ -19,23 +19,46 @@
 - 위와 같은 이유로, 프로젝트의 저장소에 가상머신 정보를 넣지 않고 각자의 Vagrant 환경을 사용하는 것이 옳다.
 
 # 컴포저 글로벌
+- ?
+- 
 
-
-
-
-
-# 실제 사용법
+# 설치
 ## VirtualBox
 - 패스
+
 ## vagrant 설치
 - 패스
+
 ```
 taelkim:~ tael$ vagrant box add laravel/homestead
 ```
 (최초 다운로드시 10~60분 정도 걸림)
 
-## Homestead 설치
-- 
+## Homestead 설치(3.0 기준)
+- 설치
+```
+taelkim:~ tael$ cd ~
+taelkim:~ tael$ git clone https://github.com/laravel/homestead.git Homestead
+Cloning into 'Homestead'...
+remote: Counting objects: 1623, done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 1623 (delta 7), reused 0 (delta 0), pack-reused 1611
+Receiving objects: 100% (1623/1623), 254.51 KiB | 180.00 KiB/s, done.
+Resolving deltas: 100% (955/955), done.
+Checking connectivity... done.
+taelkim:~ tael$
+```
+
+- 초기화
+```
+taelkim:~ tael$ cd Homestead/
+taelkim:Homestead tael$ bash init.sh
+Homestead initialized!
+taelkim:~ tael$
+```
+(`~/.homestead`에 기본 설정파일인 `Homestead.yaml`,`after.sh`,`aliases` 파일이 생성됨)
+
+
 ## 컴포저 설치
 - 패스
 ##
