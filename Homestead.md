@@ -29,11 +29,10 @@
 ## vagrant
 - 설치
   - 패스
-- 설정
-  ```
+- 홈스테드 박스 추가(최초 다운로드시 10~60분 정도 걸림)
+```
 taelkim:~ tael$ vagrant box add laravel/homestead
 ```
-(최초 다운로드시 10~60분 정도 걸림)
 
 ## Homestead 설치(3.0 기준)
 - 설치
