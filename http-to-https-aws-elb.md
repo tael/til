@@ -3,7 +3,7 @@
 - 그럼에도 사용성을 위해 HTTP를 유지 해야 이탈을 방지할 수 있다.
 - HTTP 로 들어온 요청을 HTTPS로 변경하여 재요청 하는 방법을 설명한다.
 
-# NGINX
+## NGINX
 ```
 server {
   listen 80;
@@ -16,7 +16,7 @@ server {
   }
 }
 ```
-# APACHE
+## APACHE
 ```
 <VirtualHost *:80>
 ...
