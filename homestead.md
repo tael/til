@@ -114,6 +114,9 @@ taelkim:~ tael$ mkdir -p ~/Code
 function homestead() {
     ( cd ~/Homestead && vagrant $* )
 }
+function homesteadrc(){
+    ( vi ~/.homestead/Homestead.yaml)
+}
 ```
 
 # More Info
