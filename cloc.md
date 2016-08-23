@@ -1,4 +1,4 @@
-# Source Code Line Counter
+# CountLinesOfCodes(CLOC)
 
 
 http://cloc.sourceforge.net/
