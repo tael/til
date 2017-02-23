@@ -1,4 +1,4 @@
-# short tag 없애기 
+# short open tag 없애기 
 ## short tag
 `<? foreach(...)` 와 같이 html 사이에 `<?` 을 통해 PHP 구문을 open 하는 태그. `<?php` 는 long tag 라고 부름.
 deprecated 되어 기본 옵션이 사용 불가로 됨..
@@ -22,8 +22,11 @@ $composer global update friendsofphp/php-cs-fixer
 ```
 ## 사용법 
 ```
-$ php-cs-fixer fix --fixers=short_tag --diff --dry-run <path>
+$ php-cs-fixer fix --rules=full_opening_tag /path/to/dir
 ```
+
+## 주의 
+현재 php7을 사용하고있다면 ini 에서 short open tag 를 임시적으로 on 해야 lint 시 에러가 발생안함. 
 
 ## 참고 링크
 - http://stackoverflow.com/questions/684587/batch-script-to-replace-php-short-open-tags-with-php
