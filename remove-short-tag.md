@@ -20,7 +20,10 @@ brew upgrade php-cs-fixer
 ```
 $composer global update friendsofphp/php-cs-fixer
 ```
-
+## 사용법 
+```
+$ php-cs-fixer fix --fixers=short_tag --diff --dry-run <path>
+```
 
 ## 참고 링크
 http://stackoverflow.com/questions/684587/batch-script-to-replace-php-short-open-tags-with-php
